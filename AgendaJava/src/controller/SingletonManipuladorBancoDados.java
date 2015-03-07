@@ -25,6 +25,11 @@ public class SingletonManipuladorBancoDados {
 	private boolean retorno = false;
 
 	
+	//contrutor privado para impedir que esta classe seja instânciada externamente
+	private SingletonManipuladorBancoDados() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public static synchronized SingletonManipuladorBancoDados getInstance(){
 		if(instance == null){
 			instance = new SingletonManipuladorBancoDados();
@@ -36,7 +41,7 @@ public class SingletonManipuladorBancoDados {
 	private Connection getConnection() throws SQLException {
 		Connection con = null;
 		con = DriverManager
-				.getConnection("jdbc:postgresql://localhost/agenda_telefone?user=postgres&password=com!@#$%6");
+				.getConnection("jdbc:postgresql://localhost/agenda_telefone?user=postgres&password=postgres");
 		return con;
 	}
 
