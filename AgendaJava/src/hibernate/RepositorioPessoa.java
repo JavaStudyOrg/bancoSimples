@@ -1,15 +1,11 @@
 package hibernate;
 
-import java.util.List;
-
 import hibernate.bean.Pessoas;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import java.util.List;
 
-import model.Pessoa;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class RepositorioPessoa {
 
@@ -23,24 +19,25 @@ public class RepositorioPessoa {
 		this.em = em;
 	}
 
-	public void salvar(Pessoas pessoa) {
+	public int salvar(Pessoas pessoa) {
 //		if (!em.getTransaction().isActive()) {
 //			em = emf.createEntityManager();
 //			em.getTransaction().begin();
 //		}
-		em.merge(pessoa);
-		em.getTransaction().commit();
+		pessoa = em.merge(pessoa);
+//		em.getTransaction().commit();
 //		emf.close();
+		return pessoa.getPes_id();
 	}
 
-	public void remover(Pessoas pessoa) {
+	public void remover(Integer id) {
 		
 		
 //		if (!em.getTransaction().isActive()) {
 //			em = emf.createEntityManager();
 //			em.getTransaction().begin();
 //		}
-		pessoa = em.find(Pessoas.class, pessoa.getPes_id());
+		Pessoas pessoa = em.find(Pessoas.class, id);
 		em.remove(pessoa);
 //		em.getTransaction().commit();
 //		emf.close();

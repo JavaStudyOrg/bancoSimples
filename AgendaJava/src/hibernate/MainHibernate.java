@@ -16,13 +16,13 @@ public class MainHibernate {
 		RepositorioPessoa repositorio = new RepositorioPessoa(em);
 		
 		Pessoas pessoas = new Pessoas();
-		pessoas.setPes_id(1);
 		pessoas.setPes_nome("cadu");
-		repositorio.salvar(pessoas);
+		int id = repositorio.salvar(pessoas);
 		repositorio.listar();
-		repositorio.remover(pessoas);
+		repositorio.remover(id);
 		System.out.println();
 		System.out.println("Depois da remoção");
+		em.getTransaction().commit();
 		repositorio.listar();
 		em.close();
 		emf.close();
