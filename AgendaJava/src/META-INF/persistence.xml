@@ -5,16 +5,11 @@
 	version="2.0">
 
 	<persistence-unit name="Config">
-
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		
-
 		<properties>
 			<!-- dados da conexao -->
-			
-			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -25,8 +20,6 @@
 			<!-- propriedades do hibernate -->
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
-
-
 		</properties>
 	</persistence-unit>
 </persistence>
