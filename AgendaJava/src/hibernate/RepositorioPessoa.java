@@ -27,6 +27,7 @@ public class RepositorioPessoa {
 
 	public void listar() {
 		Query consulta = em.createQuery("select p from Pessoas p");
+		
 		@SuppressWarnings("unchecked")
 		List<Pessoas> lista = consulta.getResultList();
 
