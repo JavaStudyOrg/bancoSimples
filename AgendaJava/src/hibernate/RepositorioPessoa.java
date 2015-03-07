@@ -9,36 +9,48 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import model.Pessoa;
+
 public class RepositorioPessoa {
 
-	public static void main(String args[]) throws Exception {
+	
 
-	}
-
-	EntityManagerFactory emf;
+//	EntityManagerFactory emf;
 	EntityManager em;
 
-	public RepositorioPessoa() {
-		emf = Persistence.createEntityManagerFactory("Config");
-		em = emf.createEntityManager();
+	public RepositorioPessoa(EntityManager em) {
+//		emf = Persistence.createEntityManagerFactory("Config");
+		this.em = em;
 	}
 
 	public void salvar(Pessoas pessoa) {
-		em.getTransaction().begin();
+//		if (!em.getTransaction().isActive()) {
+//			em = emf.createEntityManager();
+//			em.getTransaction().begin();
+//		}
 		em.merge(pessoa);
 		em.getTransaction().commit();
-		// emf.close();
+//		emf.close();
 	}
 
 	public void remover(Pessoas pessoa) {
-		em.getTransaction().begin();
+		
+		
+//		if (!em.getTransaction().isActive()) {
+//			em = emf.createEntityManager();
+//			em.getTransaction().begin();
+//		}
+		pessoa = em.find(Pessoas.class, pessoa.getPes_id());
 		em.remove(pessoa);
-		em.getTransaction().commit();
-		emf.close();
+//		em.getTransaction().commit();
+//		emf.close();
 	}
 
 	public void listar() {
-		em.getTransaction().begin();
+//		if (!em.getTransaction().isActive()) {
+//			em = emf.createEntityManager();
+//			em.getTransaction().begin();
+//		}
 		Query consulta = em.createQuery("select p from Pessoas p");
 		@SuppressWarnings("unchecked")
 		List<Pessoas> lista = consulta.getResultList();
@@ -49,7 +61,7 @@ public class RepositorioPessoa {
 
 		}
 
-		em.getTransaction().commit();
-		emf.close();
+//		em.getTransaction().commit();
+//		emf.close();
 	}
 }
