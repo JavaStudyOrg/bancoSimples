@@ -14,8 +14,12 @@ public class Singleton {
 		return instance;
 	}
 	
+	//---------------------------------------------------
+	// Métodos da classe
+	//---------------------------------------------------
 	public static String Teste(){
 		return "Deu certo!";
 	}
+	//---------------------------------------------------
 
 }

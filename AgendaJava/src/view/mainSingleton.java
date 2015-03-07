@@ -6,8 +6,6 @@ import java.util.List;
 
 import model.Pessoa;
 import controller.InstanciaBanco;
-import controller.ManipuladorBancoDados;
-import controller.ManipularPessoa;
 import controller.Singleton;
 import controller.SingletonManipuladorBancoDados;
 
@@ -17,10 +15,8 @@ public class mainSingleton {
 		//---------------------------------------------
 		// Teste 1
 		//---------------------------------------------
-		InstanciaBanco singleton = new InstanciaBanco();
-		
-		singleton.Teste1();
-		singleton.Teste2();
+		InstanciaBanco.Teste1();
+		InstanciaBanco.Teste2();
 		//---------------------------------------------
 		
 		//---------------------------------------------
