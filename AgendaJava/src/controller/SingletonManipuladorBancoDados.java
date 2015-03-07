@@ -36,7 +36,7 @@ public class SingletonManipuladorBancoDados {
 	private Connection getConnection() throws SQLException {
 		Connection con = null;
 		con = DriverManager
-				.getConnection("jdbc:postgresql://localhost/agenda_telefone?user=postgres&password=com!@#$%6");
+				.getConnection("jdbc:postgresql://localhost/agenda_telefone?user=postgres&password=postgres");
 		return con;
 	}
 

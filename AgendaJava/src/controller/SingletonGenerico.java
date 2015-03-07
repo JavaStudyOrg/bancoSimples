@@ -12,12 +12,17 @@ public class SingletonGenerico {
 	private static Connection con;
 	private static String dburl;
 	
-	public static synchronized SingletonGenerico getIstance() {
+	private SingletonGenerico()	{
+		con = null;
+		dburl = "";
+		instance = null;
+	}
+	
+	public static synchronized SingletonGenerico getInstance() {
 		if(instance == null)
 			instance = new SingletonGenerico();
 		
-		return instance;
-		
+		return instance;		
 	}
 	
 	public void setUrl(String url) {
